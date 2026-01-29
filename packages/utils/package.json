@@ -1,0 +1,44 @@
+{
+  "name": "fre-refresh-utils",
+  "version": "1.0.0",
+  "description": "Hot Module Replacement utilities for Fre",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "fre": "workspace:*",
+    "fre-refresh-core": "workspace:*"
+  },
+  "keywords": [
+    "fre",
+    "hmr",
+    "utilities"
+  ],
+  "author": "Jacob Maynard",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfinityBowman/fre.git",
+    "directory": "packages/utils"
+  },
+  "homepage": "https://github.com/InfinityBowman/fre/tree/master/packages/utils",
+  "bugs": {
+    "url": "https://github.com/InfinityBowman/fre/issues"
+  }
+}

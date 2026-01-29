@@ -5,8 +5,21 @@
 yarn-error.log
 demo/**/node_modules/
 demo/**/dist/
+demo-hmr/dist/
 /dist/
 /**/node_modules/
 .DS_Store
 /.ignore/
 yarn.lock
+pnpm-lock.yaml
+
+# Build artifacts in packages
+packages/**/dist/
+
+# TypeScript build artifacts (should not be in src directories)
+*.d.ts.map
+*.js.map
+src/**/*.d.ts
+src/**/*.js
+!src/**/*.tsx
+!src/**/*.ts

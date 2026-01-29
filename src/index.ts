@@ -1,5 +1,5 @@
 export { h, Fragment, h as createElement, memo, Suspense, lazy, ErrorBoundary } from './h'
-export { render, useFiber, resetFiber } from './reconcile'
+export { render, useFiber, resetFiber, update } from './reconcile'
 export {
   useState,
   useReducer,
@@ -14,4 +14,5 @@ export {
   resetCursor
 } from './hook'
 export { shouldYield, schedule as startTransition } from './schedule'
+export { options } from './options'
 export * from './type'

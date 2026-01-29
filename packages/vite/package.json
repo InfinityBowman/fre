@@ -1,0 +1,50 @@
+{
+  "name": "fre-refresh-vite",
+  "version": "1.0.0",
+  "description": "Vite plugin for Fre Fast Refresh (HMR)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "react-refresh": "^0.14.0"
+  },
+  "peerDependencies": {
+    "vite": ">=4.0.0"
+  },
+  "keywords": [
+    "fre",
+    "vite",
+    "vite-plugin",
+    "hmr",
+    "hot-module-replacement",
+    "fast-refresh"
+  ],
+  "author": "Jacob Maynard",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfinityBowman/fre.git",
+    "directory": "packages/vite"
+  },
+  "homepage": "https://github.com/InfinityBowman/fre/tree/master/packages/vite",
+  "bugs": {
+    "url": "https://github.com/InfinityBowman/fre/issues"
+  }
+}

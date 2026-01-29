@@ -1,0 +1,45 @@
+{
+  "name": "fre-refresh-core",
+  "version": "1.0.0",
+  "description": "Hot Module Replacement runtime for Fre - Core package",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "fre": "workspace:*"
+  },
+  "keywords": [
+    "fre",
+    "hmr",
+    "hot-module-replacement",
+    "fast-refresh",
+    "vite"
+  ],
+  "author": "Jacob Maynard",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfinityBowman/fre.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/InfinityBowman/fre/tree/master/packages/core",
+  "bugs": {
+    "url": "https://github.com/InfinityBowman/fre/issues"
+  }
+}

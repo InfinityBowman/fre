@@ -9,7 +9,7 @@
   "exports": {
     ".": {
       "import": "./dist/fre.js",
-      "require": "./dist/fre.umd.js",      
+      "require": "./dist/fre.umd.js",
       "types": "./dist/types/index.d.ts"
     },
     "./jsx-runtime": {
@@ -38,7 +38,8 @@
     "test": "cross-env pw-test test/*.spec.tsx --runner zora --extensions tsx --cov",
     "report": "npx nyc report",
     "build": "rollup -c",
-    "dev": "cd demo && pnpm dev",
+    "build:packages": "pnpm build && pnpm -r --filter './packages/*' build",
+    "dev": "cd demo-hmr && pnpm dev",
     "prepublishOnly": "pnpm build"
   },
   "description": "Tiny Concurrent UI library with Fiber.",

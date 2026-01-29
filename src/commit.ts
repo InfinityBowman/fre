@@ -1,6 +1,7 @@
 import { FiberFinish, FiberHost, HTMLElementEx, Fiber, Ref, TAG, MODE } from './type'
 import { updateElement } from './dom'
 import { isFn } from './reconcile'
+import { options } from './options'
 
 export const commit = (fiber?: FiberFinish) => {
   if (!fiber) {
@@ -61,6 +62,9 @@ const kidsRefer = (kids: Fiber[]) => {
 }
 
 export const removeElement = (fiber: Fiber, flag: boolean = true) => {
+  // Call unmount hook before removal
+  if (options.unmount) options.unmount(fiber)
+
   fiber.flag = TAG.REMOVE
   if (fiber.isComp) {
     fiber.hooks && fiber.hooks.list.forEach((e) => e[2] && e[2]())

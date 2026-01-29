@@ -14,6 +14,7 @@ import { resetCursor } from './hook'
 import { schedule, shouldYield } from './schedule'
 import { isArr, createText, Suspense, ErrorBoundary } from './h'
 import { commit, removeElement } from './commit'
+import { options } from './options'
 
 let currentFiber: Fiber = null
 let currentDom: Node | null = null
@@ -135,6 +136,8 @@ const bubble = (fiber: Fiber) => {
       side(fiber.hooks.layout)
       schedule(() => side(fiber.hooks.effect) as undefined)
     }
+    // Call diffed hook after component has rendered
+    if (options.diffed) options.diffed(fiber)
   }
 }
 
@@ -157,6 +160,10 @@ const updateHook = (fiber: Fiber) => {
   resetCursor()
   resetFiber(fiber)
   fiber.node = fiber.node || fragment(fiber)
+
+  // Call diff hook before rendering
+  if (options.diff) options.diff(fiber)
+
   try {
     let children = (fiber.type as FC)(fiber.props)
     reconcileChildren(fiber, simpleVnode(children))
@@ -216,6 +223,9 @@ const reconcileChildren = (
       fiber.child = child
     }
     prev = child
+
+    // Call fiber hook for tracking (used by HMR)
+    if (options.fiber) options.fiber(child)
   }
 }
 
